@@ -1,3 +1,10 @@
+// PSEUDOCODE:
+// Click a button to generate a password
+// Prompt user for criteria including: password length, include lowercase, include uppercase, include numeric, include special characters
+// Validate user choices and include at least one of each character type
+// Generate password
+// Display password in provided text box
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
