@@ -89,40 +89,48 @@ function writePassword() {
     upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lower: "abcdefghijklmnopqrstuvwxyz",
     numbers: "0123456789",
-    symbols: "#$%&'()*+,-./:;<=>?@[]^_`{|}~ "
+    symbols: "#$%&'()*+,-./:;<=>?@[]^_`{|}~"
   };
 
+  // string variable with users choices inserted
   var string = "";
 
-  if (userInput.upper === true) { string += chars.upper }
-  else { string -= chars.upper };
+  if (userInput.upper === true) { string += chars.upper };
+  // else { string -= chars.upper };
 
-  if (userInput.lower === true) { string += chars.lower }
-  else { string -= chars.lower };
+  if (userInput.lower === true) { string += chars.lower };
+  // else { string -= chars.lower };
 
-  if (userInput.number === true) { string += chars.numbers }
-  else { string -= chars.numbers };
+  if (userInput.number === true) { string += chars.numbers };
+  // else { string -= chars.numbers };
 
-  if (userInput.special === true) { string += chars.symbols }
-  else { string -= chars.symbols };
+  if (userInput.special === true) { string += chars.symbols };
+  // else { string -= chars.symbols };
 
-  //  debugger;
+  if (userInput.special === false && userInput.upper === false && userInput.number === false && userInput.lower === false) {
+    window.alert("You must choose at least one character type. Try again.");
+    writePassword();
+  };
 
+  // debugger;
+
+  // generate random password using var string
   function generatePassword() {
     var password = "";
 
-    for (var i = 0; i <= userInput.length; i++) {
-      var randomNumber = Math.floor(Math.random() * chars.length);
+    for (var i = 0; i < userInput.length; i++) {
+      var randomNumber = Math.floor(Math.random() * string.length);
       password += string.substring(randomNumber, randomNumber + 1);
     }
     return password;
   };
-  console.log(password);
 
-  passwordText.value = password;
 
   var password = generatePassword();
+  console.log(password);  
+
   var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
 };
 
