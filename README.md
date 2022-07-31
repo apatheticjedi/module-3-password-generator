@@ -1,4 +1,4 @@
-# module-3-password-generator
+# Module 3: Password Generator
 
 ## About This Project
 
@@ -18,4 +18,4 @@ https://apatheticjedi.github.io/module-3-password-generator/
 
 ##
 
-Created by David Lundt
+JavaScript written by David Lundt
