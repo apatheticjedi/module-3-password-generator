@@ -8,6 +8,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Generate password based on user criteria
 function generatePassword() {
   // validate and return length of password
   var length = parseInt(prompt("How long would you like to make your password (8-128 characters)?"));
@@ -39,27 +40,36 @@ function generatePassword() {
     symbols: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
   };
 
-  // create string variable with user's choices inserted
+  // create string variable with user's choices
   var string = "";
 
-  if (upperCase) { string += chars.upper };
+  if (upperCase) {
+    string += chars.upper
+  };
 
-  if (lowerCase) { string += chars.lower };
+  if (lowerCase) {
+    string += chars.lower
+  };
 
-  if (numInclude) { string += chars.numbers };
+  if (numInclude) {
+    string += chars.numbers
+  };
 
-  if (specialChar) { string += chars.symbols };
+  if (specialChar) {
+    string += chars.symbols
+  };
 
   if (!specialChar && !upperCase && !numInclude && !lowerCase) {
     alert("You must choose at least one character type. Try again.");
   };
 
+  // generate random password with created string
   var password = "";
 
   for (var i = 0; i < length; i++) {
     var randomNumber = Math.floor(Math.random() * string.length);
     password += string.substring(randomNumber, randomNumber + 1);
-  }
+  };
   return password;
 };
 
